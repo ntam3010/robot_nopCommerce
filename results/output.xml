@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.10 on win32)" generated="20230324 16:48:54.192" rpa="false" schemaversion="3">
+<suite id="s1" name="Change Password Fail" source="D:\Robot\Training\nopCommerce_editing\testcases\change_password_fail.robot">
+<kw name="Register New User Then Login" library="common_keywords" type="SETUP">
+<kw name="Open The Register Page" library="browser">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${base_url}${register_path}</arg>
+<arg>${selected_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230324 16:48:54.417" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
+<status status="PASS" starttime="20230324 16:48:54.417" endtime="20230324 16:48:56.916"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230324 16:48:56.916" endtime="20230324 16:48:57.040"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:54.417" endtime="20230324 16:48:57.040"/>
+</kw>
+<kw name="Generate Random Email Address" library="common_keywords">
+<var>${register_email}</var>
+<kw name="Generate Random String" library="String">
+<var>${random_str}</var>
+<arg>8</arg>
+<arg>[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20230324 16:48:57.041" level="INFO">${random_str} = bhvcofsk</msg>
+<status status="PASS" starttime="20230324 16:48:57.041" endtime="20230324 16:48:57.041"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${random_email}</var>
+<arg>SEPARATOR=</arg>
+<arg>${random_str}</arg>
+<arg>@mailinator.com</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230324 16:48:57.041" level="INFO">${random_email} = bhvcofsk@mailinator.com</msg>
+<status status="PASS" starttime="20230324 16:48:57.041" endtime="20230324 16:48:57.041"/>
+</kw>
+<return>
+<value>${random_email}</value>
+<status status="PASS" starttime="20230324 16:48:57.042" endtime="20230324 16:48:57.042"/>
+</return>
+<msg timestamp="20230324 16:48:57.042" level="INFO">${register_email} = bhvcofsk@mailinator.com</msg>
+<status status="PASS" starttime="20230324 16:48:57.041" endtime="20230324 16:48:57.042"/>
+</kw>
+<kw name="Register New User With Required Data" library="register_page">
+<arg>${default_firstName}</arg>
+<arg>${default_lastName}</arg>
+<arg>${register_email}</arg>
+<arg>${default_pwd}</arg>
+<arg>${default_pwd}</arg>
+<kw name="Input First Name" library="register_page">
+<arg>${first_name_value}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${firstName_txt}</arg>
+<arg>${first_name_value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:57.043" level="INFO">Typing text 'Tam' into text field 'css:input#FirstName'.</msg>
+<status status="PASS" starttime="20230324 16:48:57.042" endtime="20230324 16:48:57.114"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.042" endtime="20230324 16:48:57.114"/>
+</kw>
+<kw name="Input Last Name" library="register_page">
+<arg>${last_name_value}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${lastName_txt}</arg>
+<arg>${last_name_value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:57.115" level="INFO">Typing text 'Doan' into text field 'css:input#LastName'.</msg>
+<status status="PASS" starttime="20230324 16:48:57.114" endtime="20230324 16:48:57.183"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.114" endtime="20230324 16:48:57.184"/>
+</kw>
+<kw name="Input Email" library="register_page">
+<arg>${email_value}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_txt}</arg>
+<arg>${email_value}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:57.184" level="INFO">Typing text 'bhvcofsk@mailinator.com' into text field 'css:input#Email'.</msg>
+<status status="PASS" starttime="20230324 16:48:57.184" endtime="20230324 16:48:57.276"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.184" endtime="20230324 16:48:57.276"/>
+</kw>
+<kw name="Input Password Value" library="register_page">
+<arg>${pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${pwd_txt}</arg>
+<arg>${pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:57.277" level="INFO">Typing password into text field 'css:input#Password'.</msg>
+<msg timestamp="20230324 16:48:57.313" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:48:57.363" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:48:57.276" endtime="20230324 16:48:57.363"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.276" endtime="20230324 16:48:57.363"/>
+</kw>
+<kw name="Input Confirm Password Value" library="register_page">
+<arg>${confirm_pwd}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_pwd_txt}</arg>
+<arg>${confirm_pwd}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:57.364" level="INFO">Typing password into text field 'css:input#ConfirmPassword'.</msg>
+<msg timestamp="20230324 16:48:57.403" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:48:57.442" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:48:57.363" endtime="20230324 16:48:57.442"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.363" endtime="20230324 16:48:57.443"/>
+</kw>
+<kw name="Click Register Button" library="register_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${register_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:57.443" level="INFO">Clicking button 'css:button#register-button'.</msg>
+<status status="PASS" starttime="20230324 16:48:57.443" endtime="20230324 16:48:58.597"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.443" endtime="20230324 16:48:58.597"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:57.042" endtime="20230324 16:48:58.597"/>
+</kw>
+<kw name="Click On Login Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:58.599" level="INFO">Clicking element 'xpath://a[contains(text(),'Log in')]'.</msg>
+<status status="PASS" starttime="20230324 16:48:58.599" endtime="20230324 16:48:58.953"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:58.598" endtime="20230324 16:48:58.954"/>
+</kw>
+<kw name="Login With" library="login_page">
+<arg>${register_email}</arg>
+<arg>${default_pwd}</arg>
+<kw name="Input Email To Login" library="login_page">
+<arg>${login_email}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email_txt}</arg>
+<arg>${login_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:58.955" level="INFO">Typing text 'bhvcofsk@mailinator.com' into text field 'css:input#Email'.</msg>
+<status status="PASS" starttime="20230324 16:48:58.955" endtime="20230324 16:48:59.029"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:58.955" endtime="20230324 16:48:59.029"/>
+</kw>
+<kw name="Input Password To Login" library="login_page">
+<arg>${login_pwd}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_txt}</arg>
+<arg>${login_pwd}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:59.030" level="INFO">Typing text 'Test@123' into text field 'css:input#Password'.</msg>
+<status status="PASS" starttime="20230324 16:48:59.030" endtime="20230324 16:48:59.090"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:59.029" endtime="20230324 16:48:59.090"/>
+</kw>
+<kw name="Click Login Button" library="login_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:59.091" level="INFO">Clicking button 'xpath://button[contains(text(),'Log in')]'.</msg>
+<status status="PASS" starttime="20230324 16:48:59.090" endtime="20230324 16:48:59.656"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:59.090" endtime="20230324 16:48:59.657"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:58.954" endtime="20230324 16:48:59.657"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:54.417" endtime="20230324 16:48:59.657"/>
+</kw>
+<test id="s1-t1" name="Verify change password fail with invalid cred" line="13">
+<kw name="Invalid change password Scenarios">
+<arg>ChangePWD_04</arg>
+<arg>${default_pwd}</arg>
+<arg>A123</arg>
+<arg>A123</arg>
+<arg>Password must meet the following rules:\nmust have at least 6 characters</arg>
+<kw name="Click On My Account Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${myaccount_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:59.660" level="INFO">Clicking element 'xpath://a[contains(text(),'My account')]'.</msg>
+<status status="PASS" starttime="20230324 16:48:59.659" endtime="20230324 16:48:59.983"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:59.659" endtime="20230324 16:48:59.983"/>
+</kw>
+<kw name="Click On Change Password Link" library="my_account_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${change_password_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:48:59.983" level="INFO">Clicking element 'xpath://a[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:48:59.983" endtime="20230324 16:49:00.312"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:59.983" endtime="20230324 16:49:00.312"/>
+</kw>
+<kw name="Input Old And New Password Then Click Change Password Button" library="change_password_page">
+<arg>${old_pwd}</arg>
+<arg>${new_pwd}</arg>
+<arg>${confirm_pwd}</arg>
+<kw name="Input Old Password" library="change_password_page">
+<arg>${old_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${old_pwd_txt}</arg>
+<arg>${old_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:00.315" level="INFO">Typing password into text field 'css:input#OldPassword'.</msg>
+<msg timestamp="20230324 16:49:00.342" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:00.372" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:00.313" endtime="20230324 16:49:00.372"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.313" endtime="20230324 16:49:00.373"/>
+</kw>
+<kw name="Input New Password" library="change_password_page">
+<arg>${new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${new_pwd_txt}</arg>
+<arg>${new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:00.374" level="INFO">Typing password into text field 'css:input#NewPassword'.</msg>
+<msg timestamp="20230324 16:49:00.400" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:00.438" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:00.373" endtime="20230324 16:49:00.438"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.373" endtime="20230324 16:49:00.438"/>
+</kw>
+<kw name="Input Confirm New Password" library="change_password_page">
+<arg>${confirm_new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_txt}</arg>
+<arg>${confirm_new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:00.439" level="INFO">Typing password into text field 'css:input#ConfirmNewPassword'.</msg>
+<msg timestamp="20230324 16:49:00.467" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:00.504" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:00.439" endtime="20230324 16:49:00.504"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.438" endtime="20230324 16:49:00.504"/>
+</kw>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:00.506" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:00.505" endtime="20230324 16:49:00.549"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.504" endtime="20230324 16:49:00.549"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.313" endtime="20230324 16:49:00.549"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${testcase_id}' == 'ChangePWD_10'</arg>
+<arg>Run Keywords</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_11'</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_12'</arg>
+<arg>Run Keywords</arg>
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_13'</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_14'</arg>
+<arg>Verify Summary Error Message</arg>
+<arg>${summary_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_04'</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Error Message Of New Password" library="change_password_page">
+<arg>${new_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${new_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:00.552" level="INFO">Verifying element 'css:span#NewPassword-error' contains exact text 'Password must meet the following rules:
+must have at least 6 characters'.</msg>
+<status status="PASS" starttime="20230324 16:49:00.551" endtime="20230324 16:49:00.572"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.551" endtime="20230324 16:49:00.572"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.550" endtime="20230324 16:49:00.572"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:59.659" endtime="20230324 16:49:00.572"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:59.657" endtime="20230324 16:49:00.573"/>
+</test>
+<test id="s1-t2" name="Verify change password fail with invalid cred" line="13">
+<kw name="Invalid change password Scenarios">
+<arg>ChangePWD_10</arg>
+<arg>Old password is required.</arg>
+<arg>Password is required.</arg>
+<arg>Password is required.</arg>
+<kw name="Click On My Account Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${myaccount_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:00.576" level="INFO">Clicking element 'xpath://a[contains(text(),'My account')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:00.576" endtime="20230324 16:49:00.908"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.576" endtime="20230324 16:49:00.908"/>
+</kw>
+<kw name="Click On Change Password Link" library="my_account_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${change_password_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:00.909" level="INFO">Clicking element 'xpath://a[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:00.908" endtime="20230324 16:49:01.218"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.908" endtime="20230324 16:49:01.218"/>
+</kw>
+<kw name="Input Old And New Password Then Click Change Password Button" library="change_password_page">
+<arg>${old_pwd}</arg>
+<arg>${new_pwd}</arg>
+<arg>${confirm_pwd}</arg>
+<kw name="Input Old Password" library="change_password_page">
+<arg>${old_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${old_pwd_txt}</arg>
+<arg>${old_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:01.220" level="INFO">Typing password into text field 'css:input#OldPassword'.</msg>
+<msg timestamp="20230324 16:49:01.250" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:01.274" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:01.219" endtime="20230324 16:49:01.275"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.219" endtime="20230324 16:49:01.275"/>
+</kw>
+<kw name="Input New Password" library="change_password_page">
+<arg>${new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${new_pwd_txt}</arg>
+<arg>${new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:01.276" level="INFO">Typing password into text field 'css:input#NewPassword'.</msg>
+<msg timestamp="20230324 16:49:01.306" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:01.328" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:01.275" endtime="20230324 16:49:01.328"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.275" endtime="20230324 16:49:01.328"/>
+</kw>
+<kw name="Input Confirm New Password" library="change_password_page">
+<arg>${confirm_new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_txt}</arg>
+<arg>${confirm_new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:01.329" level="INFO">Typing password into text field 'css:input#ConfirmNewPassword'.</msg>
+<msg timestamp="20230324 16:49:01.355" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:01.377" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:01.329" endtime="20230324 16:49:01.377"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.329" endtime="20230324 16:49:01.377"/>
+</kw>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:01.378" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:01.378" endtime="20230324 16:49:01.426"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.378" endtime="20230324 16:49:01.426"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.218" endtime="20230324 16:49:01.427"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${testcase_id}' == 'ChangePWD_10'</arg>
+<arg>Run Keywords</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_11'</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_12'</arg>
+<arg>Run Keywords</arg>
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_13'</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_14'</arg>
+<arg>Verify Summary Error Message</arg>
+<arg>${summary_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_04'</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Run Keywords" library="BuiltIn">
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Verify Error Message Of Old Password" library="change_password_page">
+<arg>${old_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${old_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:01.428" level="INFO">Verifying element 'css:span#OldPassword-error' contains exact text 'Old password is required.'.</msg>
+<status status="PASS" starttime="20230324 16:49:01.428" endtime="20230324 16:49:01.448"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.427" endtime="20230324 16:49:01.449"/>
+</kw>
+<kw name="Verify Error Message Of New Password" library="change_password_page">
+<arg>${new_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${new_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:01.450" level="INFO">Verifying element 'css:span#NewPassword-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20230324 16:49:01.449" endtime="20230324 16:49:01.465"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.449" endtime="20230324 16:49:01.465"/>
+</kw>
+<kw name="Verify Error Message Of Confirm New Password" library="change_password_page">
+<arg>${confirm_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:01.466" level="INFO">Verifying element 'css:span#ConfirmNewPassword-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20230324 16:49:01.465" endtime="20230324 16:49:01.484"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.465" endtime="20230324 16:49:01.484"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.427" endtime="20230324 16:49:01.484"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.427" endtime="20230324 16:49:01.484"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.575" endtime="20230324 16:49:01.484"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:00.574" endtime="20230324 16:49:01.485"/>
+</test>
+<test id="s1-t3" name="Verify change password fail with invalid cred" line="13">
+<kw name="Invalid change password Scenarios">
+<arg>ChangePWD_11</arg>
+<arg>Test@1234</arg>
+<arg>Test@1234</arg>
+<arg>Old password is required.</arg>
+<kw name="Click On My Account Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${myaccount_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:01.489" level="INFO">Clicking element 'xpath://a[contains(text(),'My account')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:01.488" endtime="20230324 16:49:01.815"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.488" endtime="20230324 16:49:01.816"/>
+</kw>
+<kw name="Click On Change Password Link" library="my_account_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${change_password_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:01.816" level="INFO">Clicking element 'xpath://a[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:01.816" endtime="20230324 16:49:02.124"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.816" endtime="20230324 16:49:02.124"/>
+</kw>
+<kw name="Input Old And New Password Then Click Change Password Button" library="change_password_page">
+<arg>${old_pwd}</arg>
+<arg>${new_pwd}</arg>
+<arg>${confirm_pwd}</arg>
+<kw name="Input Old Password" library="change_password_page">
+<arg>${old_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${old_pwd_txt}</arg>
+<arg>${old_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:02.125" level="INFO">Typing password into text field 'css:input#OldPassword'.</msg>
+<msg timestamp="20230324 16:49:02.154" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:02.176" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:02.125" endtime="20230324 16:49:02.177"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.125" endtime="20230324 16:49:02.177"/>
+</kw>
+<kw name="Input New Password" library="change_password_page">
+<arg>${new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${new_pwd_txt}</arg>
+<arg>${new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:02.177" level="INFO">Typing password into text field 'css:input#NewPassword'.</msg>
+<msg timestamp="20230324 16:49:02.202" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:02.231" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:02.177" endtime="20230324 16:49:02.231"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.177" endtime="20230324 16:49:02.231"/>
+</kw>
+<kw name="Input Confirm New Password" library="change_password_page">
+<arg>${confirm_new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_txt}</arg>
+<arg>${confirm_new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:02.232" level="INFO">Typing password into text field 'css:input#ConfirmNewPassword'.</msg>
+<msg timestamp="20230324 16:49:02.258" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:02.297" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:02.232" endtime="20230324 16:49:02.297"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.232" endtime="20230324 16:49:02.298"/>
+</kw>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:02.298" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:02.298" endtime="20230324 16:49:02.346"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.298" endtime="20230324 16:49:02.347"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.124" endtime="20230324 16:49:02.347"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${testcase_id}' == 'ChangePWD_10'</arg>
+<arg>Run Keywords</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_11'</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_12'</arg>
+<arg>Run Keywords</arg>
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_13'</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_14'</arg>
+<arg>Verify Summary Error Message</arg>
+<arg>${summary_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_04'</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Error Message Of Old Password" library="change_password_page">
+<arg>${old_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${old_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:02.349" level="INFO">Verifying element 'css:span#OldPassword-error' contains exact text 'Old password is required.'.</msg>
+<status status="PASS" starttime="20230324 16:49:02.348" endtime="20230324 16:49:02.363"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.347" endtime="20230324 16:49:02.365"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.347" endtime="20230324 16:49:02.365"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.488" endtime="20230324 16:49:02.365"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:01.486" endtime="20230324 16:49:02.365"/>
+</test>
+<test id="s1-t4" name="Verify change password fail with invalid cred" line="13">
+<kw name="Invalid change password Scenarios">
+<arg>ChangePWD_12</arg>
+<arg>${default_pwd}</arg>
+<arg>Test@1234</arg>
+<arg>Password is required.</arg>
+<kw name="Click On My Account Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${myaccount_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:02.368" level="INFO">Clicking element 'xpath://a[contains(text(),'My account')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:02.367" endtime="20230324 16:49:02.691"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.367" endtime="20230324 16:49:02.691"/>
+</kw>
+<kw name="Click On Change Password Link" library="my_account_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${change_password_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:02.692" level="INFO">Clicking element 'xpath://a[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:02.692" endtime="20230324 16:49:03.000"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.692" endtime="20230324 16:49:03.000"/>
+</kw>
+<kw name="Input Old And New Password Then Click Change Password Button" library="change_password_page">
+<arg>${old_pwd}</arg>
+<arg>${new_pwd}</arg>
+<arg>${confirm_pwd}</arg>
+<kw name="Input Old Password" library="change_password_page">
+<arg>${old_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${old_pwd_txt}</arg>
+<arg>${old_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.002" level="INFO">Typing password into text field 'css:input#OldPassword'.</msg>
+<msg timestamp="20230324 16:49:03.032" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:03.066" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:03.001" endtime="20230324 16:49:03.066"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.001" endtime="20230324 16:49:03.066"/>
+</kw>
+<kw name="Input New Password" library="change_password_page">
+<arg>${new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${new_pwd_txt}</arg>
+<arg>${new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.067" level="INFO">Typing password into text field 'css:input#NewPassword'.</msg>
+<msg timestamp="20230324 16:49:03.094" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:03.127" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:03.066" endtime="20230324 16:49:03.127"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.066" endtime="20230324 16:49:03.127"/>
+</kw>
+<kw name="Input Confirm New Password" library="change_password_page">
+<arg>${confirm_new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_txt}</arg>
+<arg>${confirm_new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.128" level="INFO">Typing password into text field 'css:input#ConfirmNewPassword'.</msg>
+<msg timestamp="20230324 16:49:03.157" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:03.186" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:03.127" endtime="20230324 16:49:03.186"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.127" endtime="20230324 16:49:03.186"/>
+</kw>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.187" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:03.187" endtime="20230324 16:49:03.227"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.187" endtime="20230324 16:49:03.227"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.000" endtime="20230324 16:49:03.227"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${testcase_id}' == 'ChangePWD_10'</arg>
+<arg>Run Keywords</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_11'</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_12'</arg>
+<arg>Run Keywords</arg>
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_13'</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_14'</arg>
+<arg>Verify Summary Error Message</arg>
+<arg>${summary_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_04'</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Run Keywords" library="BuiltIn">
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.229" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:03.228" endtime="20230324 16:49:03.264"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.228" endtime="20230324 16:49:03.264"/>
+</kw>
+<kw name="Verify Error Message Of New Password" library="change_password_page">
+<arg>${new_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${new_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:03.265" level="INFO">Verifying element 'css:span#NewPassword-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20230324 16:49:03.264" endtime="20230324 16:49:03.280"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.264" endtime="20230324 16:49:03.280"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.228" endtime="20230324 16:49:03.280"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.227" endtime="20230324 16:49:03.280"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.366" endtime="20230324 16:49:03.280"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:02.365" endtime="20230324 16:49:03.281"/>
+</test>
+<test id="s1-t5" name="Verify change password fail with invalid cred" line="13">
+<kw name="Invalid change password Scenarios">
+<arg>ChangePWD_13</arg>
+<arg>${default_pwd}</arg>
+<arg>Test@1234</arg>
+<arg>Password is required.</arg>
+<kw name="Click On My Account Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${myaccount_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.286" level="INFO">Clicking element 'xpath://a[contains(text(),'My account')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:03.285" endtime="20230324 16:49:03.617"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.284" endtime="20230324 16:49:03.617"/>
+</kw>
+<kw name="Click On Change Password Link" library="my_account_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${change_password_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.619" level="INFO">Clicking element 'xpath://a[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:03.618" endtime="20230324 16:49:03.929"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.617" endtime="20230324 16:49:03.929"/>
+</kw>
+<kw name="Input Old And New Password Then Click Change Password Button" library="change_password_page">
+<arg>${old_pwd}</arg>
+<arg>${new_pwd}</arg>
+<arg>${confirm_pwd}</arg>
+<kw name="Input Old Password" library="change_password_page">
+<arg>${old_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${old_pwd_txt}</arg>
+<arg>${old_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.930" level="INFO">Typing password into text field 'css:input#OldPassword'.</msg>
+<msg timestamp="20230324 16:49:03.959" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:03.991" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:03.930" endtime="20230324 16:49:03.991"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.929" endtime="20230324 16:49:03.991"/>
+</kw>
+<kw name="Input New Password" library="change_password_page">
+<arg>${new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${new_pwd_txt}</arg>
+<arg>${new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:03.992" level="INFO">Typing password into text field 'css:input#NewPassword'.</msg>
+<msg timestamp="20230324 16:49:04.017" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:04.052" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:03.992" endtime="20230324 16:49:04.053"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.991" endtime="20230324 16:49:04.053"/>
+</kw>
+<kw name="Input Confirm New Password" library="change_password_page">
+<arg>${confirm_new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_txt}</arg>
+<arg>${confirm_new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.055" level="INFO">Typing password into text field 'css:input#ConfirmNewPassword'.</msg>
+<msg timestamp="20230324 16:49:04.079" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:04.107" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:04.054" endtime="20230324 16:49:04.107"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.053" endtime="20230324 16:49:04.108"/>
+</kw>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.108" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:04.108" endtime="20230324 16:49:04.153"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.108" endtime="20230324 16:49:04.153"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.929" endtime="20230324 16:49:04.153"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${testcase_id}' == 'ChangePWD_10'</arg>
+<arg>Run Keywords</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_11'</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_12'</arg>
+<arg>Run Keywords</arg>
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_13'</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_14'</arg>
+<arg>Verify Summary Error Message</arg>
+<arg>${summary_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_04'</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Error Message Of Confirm New Password" library="change_password_page">
+<arg>${confirm_pwd_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_error}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:04.156" level="INFO">Verifying element 'css:span#ConfirmNewPassword-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20230324 16:49:04.155" endtime="20230324 16:49:04.174"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.154" endtime="20230324 16:49:04.174"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.153" endtime="20230324 16:49:04.174"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.283" endtime="20230324 16:49:04.174"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:03.282" endtime="20230324 16:49:04.175"/>
+</test>
+<test id="s1-t6" name="Verify change password fail with invalid cred" line="13">
+<kw name="Invalid change password Scenarios">
+<arg>ChangePWD_14</arg>
+<arg>incorrectPassword</arg>
+<arg>Test@1234</arg>
+<arg>Test@1234</arg>
+<arg>Old password doesn't match</arg>
+<kw name="Click On My Account Link" library="header_navigation">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${myaccount_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.178" level="INFO">Clicking element 'xpath://a[contains(text(),'My account')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:04.178" endtime="20230324 16:49:04.497"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.178" endtime="20230324 16:49:04.497"/>
+</kw>
+<kw name="Click On Change Password Link" library="my_account_page">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${change_password_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.498" level="INFO">Clicking element 'xpath://a[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:04.497" endtime="20230324 16:49:04.805"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.497" endtime="20230324 16:49:04.805"/>
+</kw>
+<kw name="Input Old And New Password Then Click Change Password Button" library="change_password_page">
+<arg>${old_pwd}</arg>
+<arg>${new_pwd}</arg>
+<arg>${confirm_pwd}</arg>
+<kw name="Input Old Password" library="change_password_page">
+<arg>${old_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${old_pwd_txt}</arg>
+<arg>${old_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.807" level="INFO">Typing password into text field 'css:input#OldPassword'.</msg>
+<msg timestamp="20230324 16:49:04.835" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:04.871" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:04.806" endtime="20230324 16:49:04.871"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.806" endtime="20230324 16:49:04.871"/>
+</kw>
+<kw name="Input New Password" library="change_password_page">
+<arg>${new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${new_pwd_txt}</arg>
+<arg>${new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.872" level="INFO">Typing password into text field 'css:input#NewPassword'.</msg>
+<msg timestamp="20230324 16:49:04.898" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:04.933" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:04.871" endtime="20230324 16:49:04.933"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.871" endtime="20230324 16:49:04.933"/>
+</kw>
+<kw name="Input Confirm New Password" library="change_password_page">
+<arg>${confirm_new_pwd_value}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${confirm_new_pwd_txt}</arg>
+<arg>${confirm_new_pwd_value}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.934" level="INFO">Typing password into text field 'css:input#ConfirmNewPassword'.</msg>
+<msg timestamp="20230324 16:49:04.961" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230324 16:49:04.995" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230324 16:49:04.933" endtime="20230324 16:49:04.995"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.933" endtime="20230324 16:49:04.996"/>
+</kw>
+<kw name="Click Change Password Button" library="change_password_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${change_pwd_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 16:49:04.997" level="INFO">Clicking button 'xpath://button[contains(text(),'Change password')]'.</msg>
+<status status="PASS" starttime="20230324 16:49:04.996" endtime="20230324 16:49:05.349"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.996" endtime="20230324 16:49:05.349"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.805" endtime="20230324 16:49:05.349"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${testcase_id}' == 'ChangePWD_10'</arg>
+<arg>Run Keywords</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_11'</arg>
+<arg>Verify Error Message Of Old Password</arg>
+<arg>${old_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_12'</arg>
+<arg>Run Keywords</arg>
+<arg>Click Change Password Button</arg>
+<arg>AND</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_13'</arg>
+<arg>Verify Error Message Of Confirm New Password</arg>
+<arg>${confirm_pwd_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_14'</arg>
+<arg>Verify Summary Error Message</arg>
+<arg>${summary_error_message}</arg>
+<arg>ELSE IF</arg>
+<arg>'${testcase_id}' == 'ChangePWD_04'</arg>
+<arg>Verify Error Message Of New Password</arg>
+<arg>${new_pwd_error_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Verify Summary Error Message" library="change_password_page">
+<arg>${summary_error_message}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${change_pwd_summary_errors}</arg>
+<arg>${error_message}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230324 16:49:05.351" level="INFO">Verifying element 'css:div.validation-summary-errors' contains exact text 'Old password doesn't match'.</msg>
+<status status="PASS" starttime="20230324 16:49:05.350" endtime="20230324 16:49:05.372"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:05.350" endtime="20230324 16:49:05.372"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:05.349" endtime="20230324 16:49:05.372"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.177" endtime="20230324 16:49:05.372"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:04.176" endtime="20230324 16:49:05.373"/>
+</test>
+<kw name="Close Browser Window" library="browser" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230324 16:49:05.374" endtime="20230324 16:49:07.524"/>
+</kw>
+<status status="PASS" starttime="20230324 16:49:05.374" endtime="20230324 16:49:07.524"/>
+</kw>
+<status status="PASS" starttime="20230324 16:48:54.193" endtime="20230324 16:49:07.524"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Change Password Fail">Change Password Fail</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230324 16:49:00.573" level="WARN">Multiple tests with name 'Verify change password fail with invalid cred' executed in suite 'Change Password Fail'.</msg>
+<msg timestamp="20230324 16:49:01.486" level="WARN">Multiple tests with name 'Verify change password fail with invalid cred' executed in suite 'Change Password Fail'.</msg>
+<msg timestamp="20230324 16:49:02.365" level="WARN">Multiple tests with name 'Verify change password fail with invalid cred' executed in suite 'Change Password Fail'.</msg>
+<msg timestamp="20230324 16:49:03.281" level="WARN">Multiple tests with name 'Verify change password fail with invalid cred' executed in suite 'Change Password Fail'.</msg>
+<msg timestamp="20230324 16:49:04.176" level="WARN">Multiple tests with name 'Verify change password fail with invalid cred' executed in suite 'Change Password Fail'.</msg>
+</errors>
+</robot>
