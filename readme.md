@@ -5,9 +5,21 @@ To install python, go to python official site − https://www.python.org/downloa
 *   Go to root folder (nopCommerce)
 *   Open Terminal, then run command:
     *   pip install --upgrade -r ./requirements.txt
-3.  Prepare testing data:
-    The nopCommerce website will be reset every hour, therefore it is necessary to run the command below for preparing test accounts.
-    *   robot -d results ./resources/prepare_users.robot
+
+## Folder structure
+1. /browser/
+Contains keywords that handle browser window.
+2. /keywords/
+Contains custom keywords. These custom keywords are combined from many different keywords to handle the certain action.
+3. /page_objects/
+Contains reusable keywords that are relevant to each pages.
+4. /test_data/
+Contains data for testing.
+5. /testcases/
+Contains all test cases.
+6. /web_locators/
+Contains web elements, grouped by page.
+
 
 ## Test execution on Window
 1.   Run all tests:
