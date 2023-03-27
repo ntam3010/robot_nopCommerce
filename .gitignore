@@ -5,4 +5,5 @@ output.xml
 report.html
 /web_locators/__pycache__/
 /resources/__pycache__/
+/test_data/__pycache__/
 *.pyc
