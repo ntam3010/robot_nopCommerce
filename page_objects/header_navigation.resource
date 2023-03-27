@@ -10,3 +10,6 @@ Click On Login Link
 
 Click On My Account Link
     Click Element    ${myaccount_link}
+
+Click On Logout Link
+    Click Element    ${logout_link}

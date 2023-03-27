@@ -1,3 +1,5 @@
 default_firstName="Tam"
 default_lastName="Doan"
 default_pwd="Test@123"
+changed_pwd_01="Test@1234"
+changed_pwd_02="Test@12345"
