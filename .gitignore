@@ -3,6 +3,7 @@
 log.html
 output.xml
 report.html
+/__pycache__/
 /web_locators/__pycache__/
 /resources/__pycache__/
 /test_data/__pycache__/

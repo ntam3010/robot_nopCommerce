@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables    ../resources/configuration.py
+Variables    ../configuration_data.py
 
 *** Keywords ***
 Open The Home Page
