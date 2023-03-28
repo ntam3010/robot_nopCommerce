@@ -16,19 +16,19 @@ To install python, go to python official site − https://www.python.org/downloa
 
 
 ## Folder structure
-1. /browser/
+1. `/browser/`
 Contains keywords that handle browser window.
-2. /keywords/
+2. `/keywords/`
 Contains custom keywords. These custom keywords are combined from many different keywords to handle the certain action.
-3. /page_objects/
+3. `/page_objects/`
 Contains reusable keywords that are relevant to each pages.
-4. /test_data/
+4. `/test_data/`
 Contains data for testing.
-5. /testcases/
+5. `/testcases/`
 Contains all test cases.
-6. /web_locators/
+6. `/web_locators/`
 Contains web elements, grouped by page.
-7. ./configuration_data.py
+7. `./configuration_data.py`
 Contains the initial data used for running the scripts.
 
 ## Test execution on Window
