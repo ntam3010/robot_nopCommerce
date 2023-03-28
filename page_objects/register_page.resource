@@ -32,6 +32,9 @@ Click Register Button
 Verify Successful Registration
     Element Should Be Visible    ${register_complete_msg}
 
+Click Continue Button After Registered
+    Click Element    ${register_continue_btn}
+
 Register New User With Required Data
     [Arguments]    ${first_name_value}  ${last_name_value}  ${email_value}  ${pwd_value}  ${confirm_pwd}
     Input First Name    ${first_name_value}
