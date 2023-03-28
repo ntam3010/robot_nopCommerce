@@ -25,6 +25,5 @@ Register New User Then Login
     ${register_email}=    Generate Random Email Based On DateTime
     Register New User With Required Data    ${default_firstName}    ${default_lastName}  
     ...    ${register_email}    ${default_pwd}    ${default_pwd}
-    #Click Continue Button After Registered
     Click On Login Link
     Login With    ${register_email}    ${default_pwd}

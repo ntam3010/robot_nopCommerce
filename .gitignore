@@ -8,3 +8,4 @@ report.html
 /resources/__pycache__/
 /test_data/__pycache__/
 *.pyc
+demo_script.robot
