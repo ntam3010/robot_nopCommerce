@@ -1,8 +1,11 @@
 *** Settings ***
 Library    DataDriver    file=../test_data/change_pwd_fail_data.csv
-Resource    ../keywords/common_keywords.resource
+
+Resource    ../browser/browser.resource
+Resource    ../page_objects/header_navigation.resource
 Resource    ../page_objects/my_account_page.resource
 Resource    ../page_objects/change_password_page.resource
+Resource    ../keywords/custom_keywords.resource
 
 Test Template    Invalid change password Scenarios
 
